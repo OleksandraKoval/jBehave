@@ -8,6 +8,8 @@ import pages.Google;
 import java.util.List;
 import java.util.Optional;
 
+import static java.lang.String.format;
+
 public final class PagesDictionary {
 
     private static final List<PageBinding> DICTIONARY = ImmutableList.of(
@@ -17,12 +19,17 @@ public final class PagesDictionary {
 
     public static Class<? extends AbstractPage> getPageClass(String screenName) {
         Optional<Class<? extends AbstractPage>> cls = Optional.empty();
-        for (PageBinding binding : DICTIONARY) {
-            if (binding.getUiName().getName().equals(screenName)) {
-                cls = Optional.of(binding.getClazz());
-                break;
+        try {
+            for (PageBinding binding : DICTIONARY) {
+                if (binding.getUiName().getName().equals(screenName)) {
+                    cls = Optional.of(binding.getClazz());
+                    break;
+                }
             }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            throw new RuntimeException(format("Page %s wasn't found in dictionary", screenName));
         }
-        return cls.orElseThrow(NullPointerException::new);
+        return cls.get();
     }
 }

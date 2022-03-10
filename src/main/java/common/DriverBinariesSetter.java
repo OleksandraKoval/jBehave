@@ -1,3 +1,5 @@
+package common;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.StringUtils;
 
