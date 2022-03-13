@@ -1,0 +1,18 @@
+# ide specific #
+*.class
+*.classpath
+*.project
+*.pmd
+*.iml
+*.log
+*.log.*
+*.ipr
+*.iws
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/target/
+/out/
+.idea
