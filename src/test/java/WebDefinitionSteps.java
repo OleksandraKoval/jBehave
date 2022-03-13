@@ -1,5 +1,3 @@
-package definitions;
-
 import common.AbstractDefinitionSteps;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
