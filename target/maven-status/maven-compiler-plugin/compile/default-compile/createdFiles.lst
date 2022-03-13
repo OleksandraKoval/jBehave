@@ -1,0 +1,9 @@
+generic\PagesDictionary.class
+common\DriverBinariesSetter.class
+generic\UiName.class
+pages\Bing.class
+generic\PageBinding.class
+common\AbstractPage.class
+pages\Google.class
+common\AbstractDefinitionSteps.class
+common\AbstractSteps.class
