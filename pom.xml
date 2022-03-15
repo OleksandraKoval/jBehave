@@ -56,32 +56,10 @@
             <version>${rest-assured.version}</version>
             <scope>test</scope>
         </dependency>
-        <!--        <dependency>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                    <version>4.13.2</version>
-                    &lt;!&ndash;            <scope>test</scope>&ndash;&gt;
-                </dependency>-->
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-                <configuration>
-                    <!-- <argLine>&#45;&#45;add-opens java.base/java.lang=ALL-UNNAMED</argLine>-->
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -113,8 +91,12 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
                 <configuration>
+                    <excludes>
+                        <exclude>**/DouApiTestsMock.java</exclude>
+                    </excludes>
                     <includes>
                         <include>**/AcceptanceTestSuite.java</include>
+                        <include>**/DouApiTests.java</include>
                     </includes>
                     <systemPropertiesFile>src/main/resources/serenity.properties</systemPropertiesFile>
                 </configuration>

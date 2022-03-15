@@ -1,4 +1,4 @@
-package common;
+package steps;
 
 import net.thucydides.core.steps.ScenarioSteps;
 

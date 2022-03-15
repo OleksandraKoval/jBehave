@@ -1,4 +1,4 @@
-import common.AbstractDefinitionSteps;
+import steps.AbstractDefinitionSteps;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
