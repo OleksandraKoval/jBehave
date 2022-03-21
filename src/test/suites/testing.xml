@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<suite name = "Suite">
+    <listeners>
+        <listener class-name = "reporter.CustomReporter" />
+        <listener class-name = "listener.MyListener" />
+    </listeners>
+
+    <test name = "Test">
+        <classes>
+            <class name = "apiTest.DouApiTests" />
+        </classes>
+    </test>
+</suite>

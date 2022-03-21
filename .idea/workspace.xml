@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d73751a3-f614-4275-8549-8a7d5beacf8b" name="Changes" comment="mr fix">
-      <change afterPath="$PROJECT_DIR$/src/test/java/listener/MyListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/reporter/CustomReporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="d73751a3-f614-4275-8549-8a7d5beacf8b" name="Changes" comment="reporting in console added">
+      <change afterPath="$PROJECT_DIR$/src/test/suites/testing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jBehave.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jBehave.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/SERENITY.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SERENITY.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647367654589</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="reporting in console added">
+      <created>1647850511322</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647850511322</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,7 +242,8 @@
     <MESSAGE value="delete target" />
     <MESSAGE value="mr fix" />
     <MESSAGE value="serenity.take.screenshots added" />
-    <option name="LAST_COMMIT_MESSAGE" value="serenity.take.screenshots added" />
+    <MESSAGE value="reporting in console added" />
+    <option name="LAST_COMMIT_MESSAGE" value="reporting in console added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

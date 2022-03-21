@@ -8,7 +8,6 @@
 *.log.*
 *.ipr
 *.iws
-*.xml
 
 # Package Files #
 *.jar
