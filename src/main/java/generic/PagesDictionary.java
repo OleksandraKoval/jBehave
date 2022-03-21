@@ -1,7 +1,7 @@
 package generic;
 
 import com.google.common.collect.ImmutableList;
-import common.AbstractPage;
+import pages.AbstractPage;
 import pages.Bing;
 import pages.Google;
 

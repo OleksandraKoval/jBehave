@@ -1,6 +1,6 @@
 package generic;
 
-import common.AbstractPage;
+import pages.AbstractPage;
 import lombok.Getter;
 
 @Getter

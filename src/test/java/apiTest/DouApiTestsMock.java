@@ -17,7 +17,6 @@ public class DouApiTestsMock {
     }
 
     @Test
-    @TestType(testType = "TEST_UI")
     public void testDou() {
         assertThat(ApiDouSteps.getDouRequest().asString()).as("Gamedev should be present on the Main page").contains(
                 "Gamedev");

@@ -1,4 +1,4 @@
-package common;
+package pages;
 
 import net.serenitybdd.core.pages.PageObject;
 

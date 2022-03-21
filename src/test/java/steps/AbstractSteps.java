@@ -1,6 +1,6 @@
 package steps;
 
-import common.AbstractPage;
+import pages.AbstractPage;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.slf4j.Logger;

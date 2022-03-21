@@ -1,6 +1,6 @@
 package steps;
 
-import common.AbstractPage;
+import pages.AbstractPage;
 import generic.PagesDictionary;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;

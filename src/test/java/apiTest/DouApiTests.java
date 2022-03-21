@@ -2,14 +2,12 @@ package apiTest;
 
 import annotation.TestType;
 import org.junit.runner.RunWith;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import steps.ApiDouSteps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(TestTypeRunner.class)
-@Listeners(listener.MyListener.class)
 public class DouApiTests {
 
     @Test
