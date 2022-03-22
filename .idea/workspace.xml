@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d73751a3-f614-4275-8549-8a7d5beacf8b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jBehave.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jBehave.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/AbstractPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generic/PageBinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generic/PageBinding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generic/PagesDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generic/PagesDictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/Bing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/Bing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/Google.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/Google.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SERENITY.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SERENITY.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ApiResponseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/ApiResponseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTestsMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTestsMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/listener/MyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/listener/MyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/AbstractSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/AbstractSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/WebSteps.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="pullRequest" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="26LYOm8JQfVxJGx8CslZDIjIV8W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/resources" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Test_Automation\jBehave\src\test\suites" />
+      <recent name="D:\Test_Automation\jBehave" />
+      <recent name="D:\Test_Automation\jBehave\src\test\resources\suites" />
+      <recent name="D:\Test_Automation\jBehave\src\test\resources" />
+      <recent name="D:\Test_Automation\jBehave\src\test\java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="annotation" />
+      <recent name="apiTest" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.DouApiTests">
+    <configuration name="DouApiTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jBehave" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="apiTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="apiTest" />
+      <option name="MAIN_CLASS_NAME" value="apiTest.DouApiTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DouApiTests.testConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jBehave" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="apiTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="apiTest" />
+      <option name="MAIN_CLASS_NAME" value="apiTest.DouApiTests" />
+      <option name="METHOD_NAME" value="testConnection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run Jbehave test" type="JUnit" factoryName="JUnit">
+      <module name="jBehave" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AcceptanceTestSuite" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/Test_Automation/jBehave/src/test/java/src/testing.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="jBehave" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/src/testing.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/Test_Automation/jBehave/src/test/resources/suites/testing.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="jBehave" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/suites/testing.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DouApiTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="jBehave" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="apiTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="apiTest" />
+      <option name="MAIN_CLASS_NAME" value="apiTest.DouApiTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.Run Jbehave test" />
+      <item itemvalue="JUnit.DouApiTests.testConnection" />
+      <item itemvalue="JUnit.DouApiTests" />
+      <item itemvalue="TestNG.DouApiTests" />
+      <item itemvalue="TestNG.D:/Test_Automation/jBehave/src/test/java/src/testing.xml" />
+      <item itemvalue="TestNG.D:/Test_Automation/jBehave/src/test/resources/suites/testing.xml" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.DouApiTests" />
+        <item itemvalue="JUnit.DouApiTests.testConnection" />
+        <item itemvalue="TestNG.D:/Test_Automation/jBehave/src/test/resources/suites/testing.xml" />
+        <item itemvalue="JUnit.DouApiTests" />
+        <item itemvalue="TestNG.D:/Test_Automation/jBehave/src/test/java/src/testing.xml" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="build fix">
+      <created>1647203896912</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647203896912</updated>
+    </task>
+    <task id="LOCAL-00002" summary="build fix">
+      <created>1647204078191</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1647204078191</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d73751a3-f614-4275-8549-8a7d5beacf8b" name="Changes" comment="" />
+      <created>1647204310077</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647204310077</updated>
+    </task>
+    <task id="LOCAL-00003" summary="delete target">
+      <created>1647364879018</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1647364879019</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mr fix">
+      <created>1647367654589</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1647367654589</updated>
+    </task>
+    <task id="LOCAL-00005" summary="reporting in console added">
+      <created>1647850511322</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647850511322</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Testing.xml moved to another location">
+      <created>1647874741324</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1647874741324</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="build fix" />
+    <MESSAGE value="delete target" />
+    <MESSAGE value="mr fix" />
+    <MESSAGE value="serenity.take.screenshots added" />
+    <MESSAGE value="reporting in console added" />
+    <MESSAGE value="Testing.xml moved to another location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing.xml moved to another location" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="TestNG">
+        <watch expression="Arrays.stream(iTestContext.getAllTestMethods())                 .map(ngMethods -&gt; ngMethods.getConstructorOrMethod().getMethod().getDeclaredAnnotations()).filter(eachMethod -&gt; eachMethod.getClass().getAnnotation(TestType.class) != null).collect(Collectors.toList())" language="JAVA" custom="java.util.stream.Collectors" />
+        <watch expression="eachMethod.getClass().getAnnotation(TestType.class)" language="JAVA" />
+        <watch expression="eachMethod" language="JAVA" />
+        <watch expression="Arrays.stream(iTestContext.getAllTestMethods()).map(ngMethods -&gt; ngMethods.getConstructorOrMethod().getMethod()).collect(Collectors.toList()).stream().filter(each-&gt;each.getAnnotation(TestType.class) != null).collect(Collectors.toList())" language="JAVA" custom="java.util.stream.Collectors" />
+        <watch expression="eachMethod.getAnnotation(TestType.class) != null" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
