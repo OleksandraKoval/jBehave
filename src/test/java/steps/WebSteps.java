@@ -1,10 +1,10 @@
 package steps;
 
-import pages.AbstractPage;
-import generic.PagesDictionary;
+import factoryPattern.PageFactory;
+import factoryPattern.PageTypeEnums;
+import factoryPattern.TestedPage;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import org.junit.Test;
 import org.openqa.selenium.Keys;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,10 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WebSteps extends AbstractSteps {
 
     @Step
-    @Test
     public void openPageByParameter(final String nameOfPage) {
-        AbstractPage pageForSearch = getPages().getPage(PagesDictionary.getPageClass(nameOfPage));
-        pageForSearch.open();
+        PageFactory.createPage(PageTypeEnums.PageType.valueOf(nameOfPage)).openTestedPage();
     }
 
     @Step
@@ -37,7 +35,7 @@ public class WebSteps extends AbstractSteps {
     }
 
     public WebElementFacade getElementUnderTest(final String elementName, final String page) {
-        AbstractPage pageForSearch = getPages().getPage(PagesDictionary.getPageClass(page));
+        TestedPage pageForSearch = PageFactory.createPage(PageTypeEnums.PageType.valueOf(page));
         return getWebElementByFieldName(elementName, pageForSearch);
     }
 }

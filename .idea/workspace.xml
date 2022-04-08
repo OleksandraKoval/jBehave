@@ -4,22 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d73751a3-f614-4275-8549-8a7d5beacf8b" name="Changes" comment="">
+    <list default="true" id="d73751a3-f614-4275-8549-8a7d5beacf8b" name="Changes" comment="Review comments">
+      <change afterPath="$PROJECT_DIR$/src/test/java/decoratorPattern/BingDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/decoratorPattern/GoogleDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/decoratorPattern/IGetFoundResults.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/decoratorPattern/PageDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/factoryPattern/PageFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/factoryPattern/PageTypeEnums.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/factoryPattern/TestedPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/session/AbstractEnumeratedCollection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/session/SessionKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/session/TestSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jBehave.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jBehave.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/AbstractPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/AbstractPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/generic/PageBinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generic/PageBinding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/generic/PagesDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generic/PagesDictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/Bing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/Bing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/Google.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/Google.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generic/PageBinding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generic/PagesDictionary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/generic/UiName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/Bing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/Bing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/Google.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/Google.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/SERENITY.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SERENITY.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ApiResponseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/ApiResponseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTestsMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/apiTest/DouApiTestsMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/listener/MyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/listener/MyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/WebDefinitionSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/WebDefinitionSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/AbstractDefinitionSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/AbstractDefinitionSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/steps/AbstractSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/AbstractSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/steps/WebSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/WebSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/test.story" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/test.story" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -66,6 +75,9 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/resources" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="pages" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Test_Automation\jBehave\src\test\suites" />
       <recent name="D:\Test_Automation\jBehave" />
@@ -77,11 +89,13 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="decoratorPattern" />
+      <recent name="" />
       <recent name="annotation" />
       <recent name="apiTest" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.DouApiTests">
+  <component name="RunManager" selected="JUnit.Run Jbehave test">
     <configuration name="DouApiTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jBehave" />
       <extension name="coverage">
@@ -240,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647874741324</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Review comments">
+      <created>1647884490899</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1647884490899</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,24 +284,32 @@
     <MESSAGE value="serenity.take.screenshots added" />
     <MESSAGE value="reporting in console added" />
     <MESSAGE value="Testing.xml moved to another location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing.xml moved to another location" />
+    <MESSAGE value="Review comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Review comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/test/java/WebDefinitionSteps.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/apiTest/DouApiTests.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/test/java/decoratorPattern/BingDecorator.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="Pattern.compile(&quot;: (.*?) &quot;).matcher(mydata).find()" language="JAVA" />
+        <watch expression="StringUtils.substringBetween(mydata,&quot;:&quot;,&quot;(&quot;)" language="JAVA" />
+        <watch expression="StringUtils.substringBetween(super.getFoundResults(), FIRST_SYMBOL, SECOND_SYMBOL).replace(StringUtils.SPACE,StringUtils.EMPTY)" language="JAVA" />
+        <watch expression="StringUtils.substringBetween(super.getFoundResults(), FIRST_SYMBOL, SECOND_SYMBOL).replaceAll(&quot;\\s&quot;,                 StringUtils.EMPTY);" language="JAVA" />
+        <watch expression="assertThat(valueFromGoogle).as(&quot;Result from Google is always bigger&quot;).isGreaterThan(valueFromBing);" language="JAVA" />
+      </configuration>
       <configuration name="TestNG">
         <watch expression="Arrays.stream(iTestContext.getAllTestMethods())                 .map(ngMethods -&gt; ngMethods.getConstructorOrMethod().getMethod().getDeclaredAnnotations()).filter(eachMethod -&gt; eachMethod.getClass().getAnnotation(TestType.class) != null).collect(Collectors.toList())" language="JAVA" custom="java.util.stream.Collectors" />
         <watch expression="eachMethod.getClass().getAnnotation(TestType.class)" language="JAVA" />

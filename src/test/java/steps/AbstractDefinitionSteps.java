@@ -1,11 +1,17 @@
 package steps;
 
 import net.thucydides.core.steps.ScenarioSteps;
+import session.TestSession;
 
 public class AbstractDefinitionSteps extends ScenarioSteps {
 
-    //forSession etc.
-    protected AbstractDefinitionSteps() {
+    private final TestSession testSession;
 
+    protected AbstractDefinitionSteps() {
+        testSession = TestSession.getInstance();
+    }
+
+    public TestSession getTestSession() {
+        return testSession;
     }
 }

@@ -5,6 +5,20 @@ As a user
 I want to perform an action
 So that I can achieve a business goal
 
+
+Scenario: find values and compare
+Meta:
+@test
+Given User open 'Google' page
+When User search 'Ukraine' to 'input' on 'Google' page
+And User remember value for 'result' on 'Google'
+
+Given User open 'Bing' page
+When User search 'Ukraine' to 'input' on 'Bing' page
+And User remember value for 'result' on 'Bing'
+
+Then User compare remembered values
+
 Scenario: scenario description
 Meta:
 @test
@@ -13,6 +27,6 @@ When User search '<searchedText>' to '<elementName>' on '<page>' page
 Then User see '<elementName>' contains '<searchedText>' on '<page>' page
 Examples:
 |page       |searchedText|elementName     |
-|Google     |Ukraine     |input           |
 |Bing       |EPAM        |input           |
 |Google     |            |input           |
+|Google     |Ukraine     |input           |
