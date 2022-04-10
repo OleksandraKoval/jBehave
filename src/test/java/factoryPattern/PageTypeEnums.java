@@ -4,6 +4,8 @@ public class PageTypeEnums {
 
     public enum PageType {
         Google,
-        Bing;
+        Bing,
+        BingStrategy,
+        GoogleStrategy;
     }
 }

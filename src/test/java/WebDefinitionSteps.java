@@ -11,6 +11,9 @@ import steps.AbstractDefinitionSteps;
 import steps.Bing;
 import steps.Google;
 import steps.WebSteps;
+import strategyPattern.BingStrategy;
+import strategyPattern.ClickActivity;
+import strategyPattern.GoogleStrategy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,6 +32,25 @@ public class WebDefinitionSteps extends AbstractDefinitionSteps {
     @When("User search '$searchedText' to '$elementName' on '$page' page")
     public void userTypeTextToInputTextBox(final String searchedText, final String elementName, final String page) {
         webSteps.typeTextToInputTextBox(searchedText, elementName, page);
+    }
+
+    @When("User click on '$searchType' button on '$pageStrategy' page")
+    public void ClickOnSearchTypeButton(final String searchType, final String pageStrategy) {
+        ClickActivity clickActivity = new ClickActivity();
+        WebElementFacade window = webSteps.getElementUnderTest(searchType, pageStrategy);
+
+        switch (pageStrategy) {
+            case "GoogleStrategy" -> clickActivity.setIClickOnSearchType(new GoogleStrategy(window));
+            case "BingStrategy" -> clickActivity.setIClickOnSearchType(new BingStrategy(window));
+        }
+        clickActivity.executeActivity();
+    }
+
+    @Then("User check required '<$page>' windows has window '$window'")
+    public void checkRequiredWindows(final String page, final String window) {
+        WebElementFacade elementUnderTest = webSteps.getElementUnderTest(window, page);
+        elementUnderTest.isVisible();
+
     }
 
     @Then("User see '$elementName' contains '$searchedText' on '$page' page")

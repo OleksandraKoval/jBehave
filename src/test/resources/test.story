@@ -6,6 +6,20 @@ I want to perform an action
 So that I can achieve a business goal
 
 
+Scenario: scenario description
+Meta:
+@test
+Given User open '<pageToOpen>' page
+When User search '<searchedText>' to '<elementName>' on '<pageToOpen>' page
+And User click on '<searchType>' button on '<page>' page
+Then User check required '<page>' windows has window '<expectedWindow>'
+Examples:
+|pageToOpen  |searchedText|elementName     |searchType |expectedWindow|page          |
+|Google      |Ukraine     |input           |searchType |window        |GoogleStrategy|
+|Bing        |EPAM        |input           |searchType |window        |BingStrategy  |
+
+
+
 Scenario: find values and compare
 Meta:
 @test
