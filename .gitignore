@@ -3,7 +3,6 @@
 *.classpath
 *.project
 *.pmd
-*.iml
 *.log
 *.log.*
 *.ipr
