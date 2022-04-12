@@ -23,8 +23,12 @@ public class GoogleStrategy extends TestedPage implements IClickOnSearchType {
     @FindBy(xpath = "//div[contains(@class,'ita-container')]")
     private WebElementFacade window;
 
+    @FindBy(xpath = "//div[@class='t2vtad']")
+    private WebElementFacade instruments;
+
     @Override
-    public void clickOnAction() {
+    public void executeAction() {
+        instruments.isVisible();
         elementUnderTest.click();
     }
 }

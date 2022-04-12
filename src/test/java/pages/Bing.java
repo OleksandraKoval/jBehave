@@ -1,14 +1,13 @@
-package steps;
+package pages;
 
 import decoratorPattern.IGetFoundResults;
 import factoryPattern.TestedPage;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("https://www.bing.com")
-public class Bing extends TestedPage implements  IGetFoundResults{
+public class Bing extends TestedPage implements IGetFoundResults {
 
     private WebElementFacade elementUnderTest;
 
@@ -25,10 +24,10 @@ public class Bing extends TestedPage implements  IGetFoundResults{
 
     public Bing(WebElementFacade elementUnderTest) {
         super();
-        this.elementUnderTest=elementUnderTest;
+        this.elementUnderTest = elementUnderTest;
     }
 
-   @Override
+    @Override
     public String getFoundResults() {
         return elementUnderTest.getText();
     }

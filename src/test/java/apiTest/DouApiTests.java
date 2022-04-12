@@ -17,6 +17,13 @@ public class DouApiTests {
     }
 
     @Test
+    @TestType(testType = "TEST_UI")
+    public void testDouFailed() {
+        assertThat(ApiDouSteps.getDouRequest().asString()).as("Gamedev should be present on the Main page").contains(
+                "GamedevFAILED");
+    }
+
+    @Test
     @TestType(testType = "UI")
     public void testConnection1() {
         assertThat(ApiDouSteps.getDouRequest().getStatusCode()).as("200 status code expected").isEqualTo(200);

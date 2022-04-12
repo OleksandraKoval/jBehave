@@ -1,8 +1,8 @@
 package factoryPattern;
 
-import pages.AbstractPage;
+import net.serenitybdd.core.pages.PageObject;
 
-public class TestedPage extends AbstractPage {
+public class TestedPage extends PageObject {
 
     public void openTestedPage() {
         open();

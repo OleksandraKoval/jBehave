@@ -1,13 +1,10 @@
 package steps;
 
-import factoryPattern.PageFactory;
-import factoryPattern.PageTypeEnums;
 import factoryPattern.TestedPage;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.AbstractPage;
 
 import java.lang.reflect.Field;
 
@@ -15,7 +12,7 @@ public class AbstractSteps extends ScenarioSteps {
 
     private static final Logger LOG = LoggerFactory.getLogger(AbstractSteps.class);
 
-    public WebElementFacade getWebElementByFieldName(String fieldName, AbstractPage page) {
+    public WebElementFacade getWebElementByFieldName(String fieldName, TestedPage page) {
         try {
             Field field = page.getClass().getDeclaredField(fieldName);
             field.trySetAccessible();

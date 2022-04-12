@@ -1,11 +1,8 @@
 package factoryPattern;
 
-public class PageTypeEnums {
-
-    public enum PageType {
-        Google,
-        Bing,
-        BingStrategy,
-        GoogleStrategy;
-    }
+public enum PageTypeEnums {
+    GOOGLE,
+    BING,
+    BING_STRATEGY,
+    GOOGLE_STRATEGY;
 }

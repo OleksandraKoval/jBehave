@@ -1,18 +1,16 @@
-package steps;
+package pages;
 
 
 import decoratorPattern.IGetFoundResults;
 import factoryPattern.TestedPage;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.annotations.Steps;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("https://www.google.com")
-public class Google extends TestedPage implements IGetFoundResults{
+public class Google extends TestedPage implements IGetFoundResults {
 
-private WebElementFacade elementUnderTest;
+    private WebElementFacade elementUnderTest;
 
     public Google() {
         super();
@@ -20,7 +18,7 @@ private WebElementFacade elementUnderTest;
 
     public Google(WebElementFacade elementUnderTest) {
         super();
-        this.elementUnderTest=elementUnderTest;
+        this.elementUnderTest = elementUnderTest;
     }
 
     @FindBy(name = "q")

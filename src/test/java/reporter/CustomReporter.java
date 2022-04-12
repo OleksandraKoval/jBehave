@@ -1,16 +1,16 @@
 package reporter;
 
-import org.testng.IReporter;
-import org.testng.ISuite;
-import org.testng.ISuiteResult;
-import org.testng.ITestContext;
+import lombok.SneakyThrows;
+import org.testng.*;
 import org.testng.xml.XmlSuite;
+import slackIntegration.EyesSlack;
 
 import java.util.List;
 import java.util.Map;
 
 public class CustomReporter implements IReporter {
 
+    @SneakyThrows
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
                                String outputDirectory) {
@@ -25,12 +25,20 @@ public class CustomReporter implements IReporter {
             Map<String, ISuiteResult> suiteResults = suite.getResults();
             for (ISuiteResult sr : suiteResults.values()) {
                 ITestContext tc = sr.getTestContext();
+                List<String> passedTests =
+                        tc.getPassedTests().getAllResults().stream().map(ITestResult::getName).toList();
+                List<String> failedTests =
+                        tc.getFailedTests().getAllResults().stream().map(ITestResult::getName).toList();
+                List<String> skippedTests =
+                        tc.getSkippedTests().getAllResults().stream().map(ITestResult::getName).toList();
                 System.out.println("Passed tests for suite '" + suiteName +
-                        "' is:" + tc.getPassedTests().getAllResults().size());
+                        "' is:" + passedTests.size());
                 System.out.println("Failed tests for suite '" + suiteName +
-                        "' is:" + tc.getFailedTests().getAllResults().size());
+                        "' is:" + failedTests.size());
                 System.out.println("Skipped tests for suite '" + suiteName +
-                        "' is:" + tc.getSkippedTests().getAllResults().size());
+                        "' is:" + skippedTests.size());
+
+                EyesSlack.sendTestExecutionStatusToSlack(passedTests, failedTests, skippedTests);
             }
         }
     }

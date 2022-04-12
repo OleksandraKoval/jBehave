@@ -24,7 +24,7 @@ public class BingStrategy extends TestedPage implements IClickOnSearchType {
     private WebElementFacade window;
 
     @Override
-    public void clickOnAction() {
+    public void executeAction() {
         elementUnderTest.click();
     }
 }

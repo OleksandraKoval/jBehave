@@ -6,7 +6,11 @@ import lombok.Setter;
 public class ClickActivity {
     IClickOnSearchType iClickOnSearchType;
 
+    public ClickActivity(IClickOnSearchType clickOnSearchType) {
+        this.iClickOnSearchType = clickOnSearchType;
+    }
+
     public void executeActivity() {
-        iClickOnSearchType.clickOnAction();
+        iClickOnSearchType.executeAction();
     }
 }
