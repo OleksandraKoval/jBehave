@@ -7,6 +7,7 @@
 *.log.*
 *.ipr
 *.iws
+*.iml
 
 # Package Files #
 *.jar
