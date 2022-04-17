@@ -5,8 +5,7 @@ As a user
 I want to perform an action
 So that I can achieve a business goal
 
-
-Scenario: scenario description
+Scenario: Search function validation
 Meta:
 @test
 Given User open '<pageToOpen>' page

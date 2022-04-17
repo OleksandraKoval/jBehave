@@ -28,7 +28,7 @@ public class GoogleStrategy extends TestedPage implements IClickOnSearchType {
 
     @Override
     public void executeAction() {
-        instruments.isVisible();
+        instruments.waitUntilVisible().isVisible();
         elementUnderTest.click();
     }
 }

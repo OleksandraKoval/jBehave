@@ -3,11 +3,11 @@ package steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import session.TestSession;
 
-public class AbstractDefinitionSteps extends ScenarioSteps {
+public class BaseDefinitionSteps extends ScenarioSteps {
 
     private final TestSession testSession;
 
-    protected AbstractDefinitionSteps() {
+    protected BaseDefinitionSteps() {
         testSession = TestSession.getInstance();
     }
 

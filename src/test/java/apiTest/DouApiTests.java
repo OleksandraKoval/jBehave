@@ -12,42 +12,14 @@ public class DouApiTests {
 
     @Test
     @TestType(testType = "UI")
-    public void testConnection() {
+    public void test1() {
         assertThat(ApiDouSteps.getDouRequest().getStatusCode()).as("200 status code expected").isEqualTo(200);
     }
 
     @Test
     @TestType(testType = "TEST_UI")
-    public void testDouFailed() {
+    public void test2() {
         assertThat(ApiDouSteps.getDouRequest().asString()).as("Gamedev should be present on the Main page").contains(
-                "GamedevFAILED");
+                "Gamefsdfsdfsdfsddev");
     }
-
-    @Test
-    @TestType(testType = "UI")
-    public void testConnection1() {
-        assertThat(ApiDouSteps.getDouRequest().getStatusCode()).as("200 status code expected").isEqualTo(200);
-    }
-
-    @Test
-    @TestType(testType = "UI")
-    public void testConnection2() {
-        assertThat(ApiDouSteps.getDouRequest().getStatusCode()).as("200 status code expected").isEqualTo(200);
-    }
-
-
-    @Test
-    @TestType(testType = "TEST_UI")
-    public void testDou() {
-        assertThat(ApiDouSteps.getDouRequest().asString()).as("Gamedev should be present on the Main page").contains(
-                "Gamedev");
-    }
-
-    @Test
-    @TestType(testType = "TEST_UI")
-    public void testDou1() {
-        assertThat(ApiDouSteps.getDouRequest().asString()).as("Gamedev should be present on the Main page").contains(
-                "Gamedev");
-    }
-
 }

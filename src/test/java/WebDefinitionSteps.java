@@ -4,11 +4,15 @@ import decoratorPattern.IGetFoundResults;
 import factoryPattern.PageTypeEnums;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Steps;
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.*;
+import org.jbehave.core.model.Scenario;
+import org.jbehave.core.model.Story;
+import org.junit.runner.RunWith;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 import session.SessionKey;
-import steps.AbstractDefinitionSteps;
+import steps.BaseDefinitionSteps;
 import pages.Bing;
 import pages.Google;
 import steps.WebSteps;
@@ -18,7 +22,8 @@ import strategyPattern.StrategyFactory;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class WebDefinitionSteps extends AbstractDefinitionSteps {
+public class WebDefinitionSteps extends BaseDefinitionSteps {
+
 
     @Steps
     private WebSteps webSteps;

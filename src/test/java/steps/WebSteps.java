@@ -9,7 +9,7 @@ import org.openqa.selenium.Keys;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class WebSteps extends AbstractSteps {
+public class WebSteps extends BaseSteps {
 
     @Step
     public void openPageByParameter(final PageTypeEnums nameOfPage) {

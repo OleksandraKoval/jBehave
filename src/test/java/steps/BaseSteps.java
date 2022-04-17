@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 
-public class AbstractSteps extends ScenarioSteps {
+public class BaseSteps extends ScenarioSteps {
 
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractSteps.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BaseSteps.class);
 
     public WebElementFacade getWebElementByFieldName(String fieldName, TestedPage page) {
         try {
