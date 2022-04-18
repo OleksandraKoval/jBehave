@@ -10,8 +10,8 @@ import java.util.List;
 
 public class EyesSlack {
 
-    private static final String urlSlackWebHook = System.getProperty("url.slack.webHook");
-    private static final String channelName = System.getProperty("slack.channel.name");
+    private static final String urlSlackWebHook = "https://hooks.slack.com/services/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";
+    private static final String channelName = "slackIntegration";
 
     public static void sendTestExecutionStatusToSlack(List<String> passedTests, List<String> failedTests,
                                                       List<String> skippedTests) throws Exception {
@@ -27,6 +27,8 @@ public class EyesSlack {
             skippedTests.forEach(each -> messageBuilder.append(each).append(StringUtils.SPACE));
             Payload payload = Payload.builder().channel(channelName).text(messageBuilder.toString()).build();
 
+            System.out.println("urlSlackWebHook is "+urlSlackWebHook);
+            System.out.println("channelName is "+channelName);
             WebhookResponse webhookResponse = Slack.getInstance().send(urlSlackWebHook, payload);
             webhookResponse.getMessage();
         } catch (IOException e) {
