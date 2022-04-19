@@ -1,6 +1,6 @@
 package apiTest;
 
-import annotation.TestType;
+import common.annotation.TestType;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;

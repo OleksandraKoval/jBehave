@@ -20,7 +20,6 @@ public class TestRailIntegration {
     protected static int projectId;
     protected static int suiteId;
     public static Run run;
-    public static int caseIdString;
     public static List<Integer> caseIds = new ArrayList<>();
     public static int currentCaseId;
 

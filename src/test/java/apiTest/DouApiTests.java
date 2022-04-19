@@ -1,6 +1,6 @@
 package apiTest;
 
-import annotation.TestType;
+import common.annotation.TestType;
 import org.junit.runner.RunWith;
 import org.testng.annotations.Test;
 import steps.ApiDouSteps;

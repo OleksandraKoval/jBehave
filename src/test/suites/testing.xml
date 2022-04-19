@@ -1,8 +1,8 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <suite name = "Suite">
     <listeners>
-        <listener class-name = "reporter.CustomReporter" />
-        <listener class-name = "listener.MyListener" />
+        <listener class-name = "common.reporter.CustomReporter" />
+        <listener class-name = "common.listener.MyListener" />
         <listener class-name = "com.epam.reportportal.testng.ReportPortalTestNGListener" />
     </listeners>
 

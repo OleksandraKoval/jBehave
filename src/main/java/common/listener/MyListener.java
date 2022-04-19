@@ -1,6 +1,7 @@
-package listener;
+package common.listener;
 
-import annotation.TestType;
+
+import common.annotation.TestType;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
