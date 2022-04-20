@@ -8,7 +8,7 @@ import steps.ApiDouSteps;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(TestTypeRunner.class)
-public class DouApiTests {
+public class DouApiTests extends BaseTest {
 
     @Test
     @TestType(testType = "UI")

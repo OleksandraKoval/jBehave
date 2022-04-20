@@ -1,10 +1,11 @@
-package TestRailIntegration;
+package testRailIntegration;
 
 import com.codepine.api.testrail.TestRail;
 import com.codepine.api.testrail.model.Project;
 import com.codepine.api.testrail.model.Result;
 import com.codepine.api.testrail.model.Run;
 import com.codepine.api.testrail.model.Suite;
+import config.ConfigurationManager;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,11 +15,11 @@ import java.util.List;
 public class TestRailIntegration {
 
     private static TestRail testRail;
-    protected final static String endPoint = "https://kovaloleksandra.testrail.io/";
-    protected final static String username = "oleksandra_koval@epam.com";
-    protected final static String password = "KJv0CdvX0u9arx0jaC2D";
-    protected static int projectId;
-    protected static int suiteId;
+    private final static String endPoint = ConfigurationManager.getProperty("testRail.endPoint");
+    private final static String username = ConfigurationManager.getProperty("testRail.username");
+    private final static String password = ConfigurationManager.getProperty("testRail.password");
+    public static int projectId;
+    public static int suiteId;
     public static Run run;
     public static List<Integer> caseIds = new ArrayList<>();
     public static int currentCaseId;

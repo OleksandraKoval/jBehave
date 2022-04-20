@@ -1,7 +1,7 @@
 package common.reporter;
 
-import TestRailIntegration.TestRailIntegration;
 import com.gurock.testrail.APIClient;
+import config.ConfigurationManager;
 import lombok.SneakyThrows;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,10 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
 import slackIntegration.EyesSlack;
+import testRailIntegration.TestRailIntegration;
 
 import java.util.*;
 
-public class CustomReporter extends TestRailIntegration implements IReporter {
+public class CustomReporter implements IReporter {
     private static final Logger LOG = LoggerFactory.getLogger(CustomReporter.class);
 
     private static final Map<Integer, String> idAndComment = new HashMap<>();
@@ -38,7 +39,8 @@ public class CustomReporter extends TestRailIntegration implements IReporter {
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
                                String outputDirectory) {
-
+        //Load all properties here because it is first Listener in XML file.
+        ConfigurationManager.loadProperties();
         //Iterating over each suite included in the test
         for (ISuite suite : suites) {
 
@@ -75,14 +77,13 @@ public class CustomReporter extends TestRailIntegration implements IReporter {
     @SneakyThrows
     public void sendResultToSlack() {
         EyesSlack.sendTestExecutionStatusToSlack(passedTests, failedTests, skippedTests);
-
     }
 
     @SneakyThrows
     public void sendResultToTestRail() {
-        createTestRailInstance();
-        setProjectSuiteId("TestProject", "Master");
-        createRun();
+        TestRailIntegration.createTestRailInstance();
+        TestRailIntegration.setProjectSuiteId("TestProject", "Master");
+        TestRailIntegration.createRun();
 
         createJsonObject();
 
@@ -91,19 +92,20 @@ public class CustomReporter extends TestRailIntegration implements IReporter {
         collectStatusIdAndTcId(skippedTC, idAndTitles);
 
 
-        statusIdAndCaseId.forEach((key, value) -> updateRun(value));
-        statusIdAndCaseId.forEach((key, value) -> addResult(idAndComment.get(key),
+        statusIdAndCaseId.forEach((key, value) -> TestRailIntegration.updateRun(value));
+        statusIdAndCaseId.forEach((key, value) -> TestRailIntegration.addResult(idAndComment.get(key),
                 Integer.parseInt(value.toString())));
-        statusIdAndCaseId.forEach((key, value) -> addStatusForCase(key, Integer.parseInt(value.toString())));
+        statusIdAndCaseId.forEach((key, value) -> TestRailIntegration.addStatusForCase(key,
+                Integer.parseInt(value.toString())));
     }
 
     @SneakyThrows
     private void createJsonObject() {
-        APIClient client = new APIClient(endPoint);
-        client.setUser(username);
-        client.setPassword(password);
+        APIClient client = new APIClient(ConfigurationManager.getProperty("testRail.endPoint"));
+        client.setUser(ConfigurationManager.getProperty("testRail.username"));
+        client.setPassword(ConfigurationManager.getProperty("testRail.password"));
         JSONObject allTestCases =
-                (JSONObject) client.sendGet("get_cases/" + projectId + "&suite_id=" + suiteId);
+                (JSONObject) client.sendGet("get_cases/" + TestRailIntegration.projectId + "&suite_id=" + TestRailIntegration.suiteId);
 
         JSONArray c = (JSONArray) allTestCases.get("cases");
 
