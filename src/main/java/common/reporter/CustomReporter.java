@@ -87,9 +87,9 @@ public class CustomReporter implements IReporter {
 
         createJsonObject();
 
-        collectStatusIdAndTcId(passedTC, idAndTitles);
-        collectStatusIdAndTcId(failedTC, idAndTitles);
-        collectStatusIdAndTcId(skippedTC, idAndTitles);
+        collectStatusIdAndTcId(passedTC);
+        collectStatusIdAndTcId(failedTC);
+        collectStatusIdAndTcId(skippedTC);
 
 
         statusIdAndCaseId.forEach((key, value) -> TestRailIntegration.updateRun(value));
@@ -124,7 +124,7 @@ public class CustomReporter implements IReporter {
     }
 
 
-    private void collectStatusIdAndTcId(Map<Integer, List<String>> tests, Map<Long, List<String>> idAndTitles) {
+    private void collectStatusIdAndTcId(Map<Integer, List<String>> tests) {
         for (Map.Entry<Integer, List<String>> eachTc : tests.entrySet()) {
             int key = eachTc.getKey();
             List<String> value = eachTc.getValue();
