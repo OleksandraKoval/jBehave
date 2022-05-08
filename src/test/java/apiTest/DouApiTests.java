@@ -20,6 +20,6 @@ public class DouApiTests extends BaseTest {
     @TestType(testType = "TEST_UI")
     public void test2() {
         assertThat(ApiDouSteps.getDouRequest().asString()).as("Gamedev should be present on the Main page").contains(
-                "Gamefsdfsdfsdfsddev");
+                "Gamedev");
     }
 }

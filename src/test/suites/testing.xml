@@ -3,7 +3,7 @@
     <listeners>
         <listener class-name = "common.reporter.CustomReporter" />
         <listener class-name = "common.listener.MyListener" />
-        <listener class-name = "com.epam.reportportal.testng.ReportPortalTestNGListener" />
+       <!-- <listener class-name = "com.epam.reportportal.testng.ReportPortalTestNGListener" />-->
     </listeners>
 
     <test name = "Test">

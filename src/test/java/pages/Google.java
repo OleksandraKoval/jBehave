@@ -1,32 +1,30 @@
 package pages;
 
-
+import com.codeborne.selenide.SelenideElement;
 import decoratorPattern.IGetFoundResults;
 import factoryPattern.TestedPage;
-import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
-@DefaultUrl("https://www.google.com")
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
+
+@Getter
 public class Google extends TestedPage implements IGetFoundResults {
 
-    private WebElementFacade elementUnderTest;
+    private SelenideElement elementUnderTest;
+
+    public SelenideElement input = $x("//input[@class='gLFyf gsfi']");
+    public SelenideElement result = $x("//div[@id='result-stats']");
 
     public Google() {
         super();
     }
 
-    public Google(WebElementFacade elementUnderTest) {
+    public Google(SelenideElement elementUnderTest) {
         super();
         this.elementUnderTest = elementUnderTest;
     }
-
-    @FindBy(name = "q")
-    private WebElementFacade input;
-
-
-    @FindBy(xpath = "//div[@id='result-stats']")
-    private WebElementFacade result;
 
     @Override
     public String getFoundResults() {

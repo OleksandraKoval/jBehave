@@ -1,20 +1,17 @@
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import decoratorPattern.BingDecorator;
 import decoratorPattern.GoogleDecorator;
 import decoratorPattern.IGetFoundResults;
 import factoryPattern.PageTypeEnums;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Steps;
-import org.jbehave.core.annotations.*;
-import org.jbehave.core.model.Scenario;
-import org.jbehave.core.model.Story;
-import org.junit.runner.RunWith;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import session.SessionKey;
-import steps.BaseDefinitionSteps;
+import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
+import org.jbehave.core.annotations.When;
 import pages.Bing;
 import pages.Google;
+import session.SessionKey;
+import steps.BaseDefinitionSteps;
 import steps.WebSteps;
 import strategyPattern.ClickActivity;
 import strategyPattern.IClickOnSearchType;
@@ -44,7 +41,7 @@ public class WebDefinitionSteps extends BaseDefinitionSteps {
 
     @When("User click on '$searchType' button on '$pageStrategy' page")
     public void ClickOnSearchTypeButton(final String searchType, final PageTypeEnums pageStrategy) {
-        WebElementFacade window = webSteps.getElementUnderTest(searchType, pageStrategy);
+        SelenideElement window = webSteps.getElementUnderTest(searchType, pageStrategy);
         IClickOnSearchType clickOnSearchType = StrategyFactory.getStrategy(pageStrategy, window);
         ClickActivity clickActivity = new ClickActivity(clickOnSearchType);
         clickActivity.executeActivity();
@@ -52,8 +49,8 @@ public class WebDefinitionSteps extends BaseDefinitionSteps {
 
     @Then("User check required '<$page>' windows has window '$window'")
     public void checkRequiredWindows(final PageTypeEnums page, final String window) {
-        WebElementFacade elementUnderTest = webSteps.getElementUnderTest(window, page);
-        elementUnderTest.isVisible();
+        SelenideElement elementUnderTest = webSteps.getElementUnderTest(window, page);
+        elementUnderTest.shouldBe(Condition.visible);
 
     }
 
@@ -65,7 +62,7 @@ public class WebDefinitionSteps extends BaseDefinitionSteps {
 
     @When("User remember value for '$elementName' on '$page'")
     public void userSearchTextAndGetFoundResults(final String elementName, final PageTypeEnums page) {
-        WebElementFacade elementUnderTest = webSteps.getElementUnderTest(elementName, page);
+        SelenideElement elementUnderTest = webSteps.getElementUnderTest(elementName, page);
 
         switch (page) {
             case GOOGLE: {

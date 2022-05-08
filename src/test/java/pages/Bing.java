@@ -1,28 +1,25 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
 import decoratorPattern.IGetFoundResults;
 import factoryPattern.TestedPage;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.support.FindBy;
 
-@DefaultUrl("https://www.bing.com")
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
+
 public class Bing extends TestedPage implements IGetFoundResults {
 
-    private WebElementFacade elementUnderTest;
+    private SelenideElement elementUnderTest;
 
     public Bing() {
         super();
     }
+    public SelenideElement input = $x("//input[@id='sb_form_q']");
+    public SelenideElement result = $x("//span[@class='sb_count']");
 
-
-    @FindBy(id = "sb_form_q")
-    private WebElementFacade input;
-
-    @FindBy(xpath = "//span[@class='sb_count']")
-    private WebElementFacade result;
-
-    public Bing(WebElementFacade elementUnderTest) {
+    public Bing(SelenideElement elementUnderTest) {
         super();
         this.elementUnderTest = elementUnderTest;
     }

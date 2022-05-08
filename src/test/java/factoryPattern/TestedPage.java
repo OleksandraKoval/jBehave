@@ -1,10 +1,10 @@
 package factoryPattern;
 
-import net.serenitybdd.core.pages.PageObject;
+import com.codeborne.selenide.Selenide;
 
-public class TestedPage extends PageObject {
+public class TestedPage{
 
-    public void openTestedPage() {
-        open();
+    public void openTestedPage(String url) {
+        Selenide.open(url);
     }
 }

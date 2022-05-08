@@ -17,17 +17,16 @@ Examples:
 |GOOGLE      |Ukraine     |input           |searchType |window        |GOOGLE_STRATEGY|
 |BING        |EPAM        |input           |searchType |window        |BING_STRATEGY  |
 
-
 Scenario: find values and compare
 Meta:
 @test
 Given User open 'GOOGLE' page
-When User search 'Ukraine' to 'input' on 'Google' page
-And User remember value for 'result' on 'Google'
+When User search 'Ukraine' to 'input' on 'GOOGLE' page
+And User remember value for 'result' on 'GOOGLE'
 
 And User open 'BING' page
-When User search 'Ukraine' to 'input' on 'Bing' page
-And User remember value for 'result' on 'Bing'
+When User search 'Ukraine' to 'input' on 'BING' page
+And User remember value for 'result' on 'BING'
 
 Then User compare remembered 'REMEMBERED_VALUE_FOR_GOOGLE' and 'REMEMBERED_VALUE_FOR_BING' values
 

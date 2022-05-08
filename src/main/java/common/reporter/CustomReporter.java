@@ -71,7 +71,7 @@ public class CustomReporter implements IReporter {
             }
         }
         sendResultToSlack();
-        sendResultToTestRail();
+     //   sendResultToTestRail();
     }
 
     @SneakyThrows
