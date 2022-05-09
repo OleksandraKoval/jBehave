@@ -1,14 +1,12 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<suite name = "Suite">
+<suite name="Suite">
     <listeners>
-        <listener class-name = "common.reporter.CustomReporter" />
-        <listener class-name = "common.listener.MyListener" />
-       <!-- <listener class-name = "com.epam.reportportal.testng.ReportPortalTestNGListener" />-->
+        <listener class-name="common.reporter.CustomReporter"/>
+        <listener class-name="common.listener.MyListener"/>
     </listeners>
-
-    <test name = "Test">
+    <test name="Test">
         <classes>
-            <class name = "apiTest.DouApiTests" />
+            <class name="apiTest.DouApiTests"/>
         </classes>
     </test>
 </suite>

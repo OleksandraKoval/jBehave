@@ -18,4 +18,6 @@ public class TestTypeRunner extends SerenityRunner {
     protected List<FrameworkMethod> computeTestMethods() {
         return new ArrayList<>(getTestClass().getAnnotatedMethods(TestType.class));
     }
+
 }
+
