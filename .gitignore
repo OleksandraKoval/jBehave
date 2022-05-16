@@ -8,6 +8,7 @@
 *.ipr
 *.iws
 *.iml
+*.json
 
 # Package Files #
 *.jar

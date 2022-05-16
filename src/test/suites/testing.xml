@@ -3,10 +3,15 @@
     <listeners>
         <listener class-name="common.reporter.CustomReporter"/>
         <listener class-name="common.listener.MyListener"/>
+        <listener class-name="utils.listeners.TestListener"/>
     </listeners>
     <test name="Test">
         <classes>
             <class name="apiTest.DouApiTests"/>
+            <class name="tests.SearchFunctionValidation"/>
+            <class name="tests.FindValuesAndCompare"/>
+            <class name="tests.CheckElementPresent"/>
+            <class name="tests.LoginTests"/>
         </classes>
     </test>
 </suite>

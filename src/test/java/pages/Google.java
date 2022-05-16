@@ -4,9 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import decoratorPattern.IGetFoundResults;
 import factoryPattern.TestedPage;
 import lombok.Getter;
-import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
