@@ -1,27 +1,23 @@
 package strategyPattern;
 
+import com.codeborne.selenide.SelenideElement;
 import factoryPattern.TestedPage;
-import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.support.FindBy;
+
+import static com.codeborne.selenide.Selenide.$x;
 
 public class BingStrategy extends TestedPage implements IClickOnSearchType {
 
-    WebElementFacade elementUnderTest;
-
+    SelenideElement elementUnderTest;
+    public SelenideElement searchType = $x("//div[@class='b_icon tooltip']");
+    public SelenideElement window = $x("//div[@class='b_overlayCont']//div[@class='b_ov_close']");
     public BingStrategy() {
         super();
     }
 
-    public BingStrategy(WebElementFacade window) {
+    public BingStrategy(SelenideElement window) {
         super();
         this.elementUnderTest = window;
     }
-
-    @FindBy(xpath = "//div[@class='b_icon tooltip']")
-    private WebElementFacade searchType;
-
-    @FindBy(xpath = "//div[@class='b_overlayCont']//div[@class='b_ov_close']")
-    private WebElementFacade window;
 
     @Override
     public void executeAction() {

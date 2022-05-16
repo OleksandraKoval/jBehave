@@ -9,7 +9,7 @@ public class GoogleDecorator extends PageDecorator {
     }
 
     public String getRegex() {
-        return "[^0-9?!.]";
+        return "[^0-9?!]";
     }
 
     @Override

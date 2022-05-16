@@ -2,16 +2,15 @@ package common.listener;
 
 
 import common.annotation.TestType;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestNGMethod;
-import org.testng.ITestResult;
-
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestNGMethod;
+import org.testng.ITestResult;
 
 public class MyListener implements ITestListener {
     private static final String UI_TYPES = "UI";

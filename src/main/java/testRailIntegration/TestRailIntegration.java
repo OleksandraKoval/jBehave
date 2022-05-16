@@ -6,7 +6,6 @@ import com.codepine.api.testrail.model.Result;
 import com.codepine.api.testrail.model.Run;
 import com.codepine.api.testrail.model.Suite;
 import config.ConfigurationManager;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

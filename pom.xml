@@ -4,73 +4,54 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>jBehave</groupId>
     <artifactId>jBehave</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.maven.plugin.version>3.2.0</serenity.maven.plugin.version>
-        <selenium-chrome-driver.version>4.1.3</selenium-chrome-driver.version>
-        <serenity-jbehave.version>1.46.0</serenity-jbehave.version>
-        <assertj-core.veriosn>3.22.0</assertj-core.veriosn>
-        <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
-        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
-        <rest-assured.version>3.2.3</rest-assured.version>
-        <com.github.seratch.version>3.4.2</com.github.seratch.version>
+        <aspectj.version>1.9.7</aspectj.version>
+        <testng-version>7.4.0</testng-version>
+        <ashot-version>1.5.4</ashot-version>
+        <allure-testng-version>2.13.9</allure-testng-version>
+        <log4j-version>2.14.1</log4j-version>
+        <extentreports-version>5.0.8</extentreports-version>
+        <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-core</artifactId>
-            <version>${serenity.maven.plugin.version}</version>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>6.4.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.seratch</groupId>
-            <artifactId>jslack</artifactId>
-            <version>${com.github.seratch.version}</version>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide-core</artifactId>
+            <version>6.4.0</version>
+            <scope>compile</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.5</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-junit</artifactId>
-            <version>${serenity.maven.plugin.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>${selenium-chrome-driver.version}</version>
+            <version>4.1.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-jbehave -->
         <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-jbehave</artifactId>
-            <version>${serenity-jbehave.version}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj-core.veriosn}</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng-version}</version>
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-rest-assured</artifactId>
-            <version>${rest-assured.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.codepine.api</groupId>
-            <artifactId>testrail-api-java-client</artifactId>
-            <version>2.0.2</version>
+            <version>3.2.5</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -78,96 +59,119 @@
             <version>1.1.1</version>
         </dependency>
         <dependency>
-            <groupId>com.epam.reportportal</groupId>
-            <artifactId>agent-java-testng</artifactId>
+            <groupId>com.codepine.api</groupId>
+            <artifactId>testrail-api-java-client</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.saucelabs.selenium</groupId>
+            <artifactId>selenium-client-factory</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
             <version>5.1.1</version>
         </dependency>
         <dependency>
-            <groupId>com.epam.reportportal</groupId>
-            <artifactId>logger-java-logback</artifactId>
-            <version>5.1.1</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.3</version>
         </dependency>
         <dependency>
-            <groupId>com.epam.reportportal</groupId>
-            <artifactId>logger-java-log4j</artifactId>
-            <version>5.1.4</version>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.seratch</groupId>
+            <artifactId>jslack</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.22.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.yandex.qatools.ashot</groupId>
+            <artifactId>ashot</artifactId>
+            <version>${ashot-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>6.4.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                </configuration>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
             </plugin>
             <plugin>
-                <groupId>net.serenity-bdd.maven.plugins</groupId>
-                <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.maven.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>serenity-reports</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>aggregate</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
+                <version>${maven-surefire-plugin-version}</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/suites/testing.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
                 <dependencies>
-                    <!--Explicitly tell surefire to use testNG-->
                     <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-testng</artifactId>
-                        <version>2.19.1</version>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.7</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven-failsafe-plugin.version}</version>
-                <configuration>
-                    <properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value> <!-- disabling default listeners is optional -->
-                        </property>
-                        <property>
-                            <name>listener</name>
-                            <value>com.epam.reportportal.testng.ReportPortalTestNGListener</value>
-                        </property>
-                    </properties>
-                    <includes>
-                        <include>**/AcceptanceTestSuite.java</include>
-                        <include>**/DouApiTests.java</include>
-                    </includes>
-                    <systemPropertiesFile>src/main/resources/serenity.properties</systemPropertiesFile>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
