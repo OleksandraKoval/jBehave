@@ -3,9 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import decoratorPattern.IGetFoundResults;
 import factoryPattern.TestedPage;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.$x;
 

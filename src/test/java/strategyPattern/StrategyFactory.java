@@ -10,6 +10,7 @@ public class StrategyFactory {
         return switch (type) {
             case GOOGLE_STRATEGY -> new GoogleStrategy(window);
             case BING_STRATEGY -> new BingStrategy(window);
+            case LOGIN_STRATEGY -> new LoginStrategy(window);
             default -> throw new IllegalStateException("Unexpected value: " + type);
         };
     }

@@ -10,6 +10,7 @@ public class TestedPage{
 
     public void openTestedPage(String url) {
         driver.get(url);
+        driver.manage().window().maximize();
         if (POP_UP.exists()) {
             POP_UP.click();
         }

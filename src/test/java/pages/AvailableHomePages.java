@@ -2,6 +2,7 @@ package pages;
 
 public enum AvailableHomePages {
     GOOGLE("https://www.google.com"),
+    HOME_PAGE("https://makeup.com.ua/"),
     BING("https://www.bing.com");
 
     private String path;

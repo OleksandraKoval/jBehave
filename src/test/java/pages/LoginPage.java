@@ -1,19 +1,20 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import utils.logs.Log;
+import decoratorPattern.IGetFoundResults;
+import factoryPattern.TestedPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends TestedPage implements IGetFoundResults {
+    private SelenideElement elementUnderTest;
+
+
     SelenideElement userNameId = $x("//div[@class='input-wrap']//input[@name='user_login']");
     SelenideElement passwordId = $x("//div[@class='input-wrap']//input[@name='user_pw']");
-    SelenideElement loginButtonId = $x("//div[@class='form-inner-wrap']//button[@type='submit'][1]");
 
-    public void verifyPopUpAppear() {
-        Log.info("Trying to wait login pop up");
-
-        waitVisibility(userNameId);
-        waitVisibility(passwordId);
+    @Override
+    public String getFoundResults() {
+        return elementUnderTest.getText();
     }
 }

@@ -1,6 +1,7 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import decoratorPattern.BingDecorator;
 import decoratorPattern.GoogleDecorator;
@@ -116,5 +117,10 @@ public class BaseSteps extends ScenarioSteps {
         long valueFromGoogle = getTestSession().getL(firstValue);
         long valueFromBing = getTestSession().getL(secondValue);
         Assertions.assertThat(valueFromGoogle).as("Result from Google is always bigger").isGreaterThan(valueFromBing);
+    }
+
+    protected void waitVisibility(final String elementName, final PageTypeEnums page) {
+        SelenideElement elementUnderTest = getElementUnderTest(elementName, page);
+        Selenide.Wait().until(webDriver -> elementUnderTest.isEnabled());
     }
 }
