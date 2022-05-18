@@ -14,6 +14,6 @@ public class LoginPage extends BasePage{
         Log.info("Trying to wait login pop up");
 
         waitVisibility(userNameId);
-        waitVisibility(userNameId);
+        waitVisibility(passwordId);
     }
 }
