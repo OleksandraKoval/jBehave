@@ -9,8 +9,6 @@ import decoratorPattern.IGetFoundResults;
 import factoryPattern.PageFactory;
 import factoryPattern.PageTypeEnums;
 import factoryPattern.TestedPage;
-import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.steps.ScenarioSteps;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
@@ -28,7 +26,7 @@ import java.lang.reflect.Field;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BaseSteps extends ScenarioSteps {
+public class BaseSteps {
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseSteps.class);
 
@@ -69,7 +67,8 @@ public class BaseSteps extends ScenarioSteps {
         PageFactory.createPage(nameOfPage).openTestedPage(AvailableHomePages.valueOf(nameOfPage.toString()).getPath());
     }
 
-    protected void typeTextToInputTextBox(final String searchedText, final String elementName, final PageTypeEnums page) {
+    protected void typeTextToInputTextBox(final String searchedText, final String elementName,
+                                          final PageTypeEnums page) {
         SelenideElement elementUnderTest = getElementUnderTest(elementName, page);
         elementUnderTest.val(searchedText);
         elementUnderTest.sendKeys(Keys.ENTER);
@@ -82,7 +81,8 @@ public class BaseSteps extends ScenarioSteps {
         clickActivity.executeActivity();
     }
 
-    protected void userCheckElementContainsText(final String elementName, final String searchedText, final PageTypeEnums page) {
+    protected void userCheckElementContainsText(final String elementName, final String searchedText,
+                                                final PageTypeEnums page) {
         SelenideElement elementUnderTest = getElementUnderTest(elementName, page);
         String elementText = elementUnderTest.getValue();
         assertThat(elementText).as("Tested element %s is null", elementText).contains(searchedText);

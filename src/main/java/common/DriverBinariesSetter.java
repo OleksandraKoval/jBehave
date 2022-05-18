@@ -15,6 +15,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import static com.codeborne.selenide.Browsers.*;
+
 public final class DriverBinariesSetter {
 
     private DriverBinariesSetter() {
@@ -22,9 +24,6 @@ public final class DriverBinariesSetter {
 
     public static WebDriver driver;
 
-    private static final String EDGE = "edge";
-    private static final String CHROME = "chrome";
-    private static final String FIREFOX = "firefox";
     private static final String SAUCE_LAB = "sauceLab";
 
 
@@ -63,8 +62,7 @@ public final class DriverBinariesSetter {
     }
 
     private static void callSauceLabProperties() throws MalformedURLException {
-        URL url = new URL("https://oauth-kulyasaleksandra-cb8f8:5805de78-2c54-423a-bf5e-bbd008467f6f@ondemand" +
-                ".eu-central-1.saucelabs.com:443/wd/hub");
+        URL url = new URL(ConfigurationManager.getProperty("SAUCE_URL"));
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--lang=ukr");

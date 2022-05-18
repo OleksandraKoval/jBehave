@@ -14,7 +14,6 @@ import utils.logs.Log;
 import static common.DriverBinariesSetter.driver;
 
 public class BaseTest extends BaseSteps {
-    public HomePage homePage;
 
     @SneakyThrows
     @BeforeSuite
@@ -27,11 +26,6 @@ public class BaseTest extends BaseSteps {
         Log.info("Tests are starting!");
         DriverBinariesSetter
                 .setBinariesForUsedWebDriver(System.getProperty("driverManager"));
-    }
-
-    @BeforeMethod
-    public void methodLevelSetup() {
-        homePage = new HomePage();
     }
 
     @AfterMethod
