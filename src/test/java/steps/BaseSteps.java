@@ -32,7 +32,7 @@ public class BaseSteps {
 
     private final TestSession testSession;
 
-    protected BaseSteps() {
+    public BaseSteps() {
         testSession = TestSession.getInstance();
     }
 
@@ -63,37 +63,37 @@ public class BaseSteps {
         return webElement;
     }
 
-    protected void openPageByParameter(final PageTypeEnums nameOfPage) {
+    public void openPageByParameter(final PageTypeEnums nameOfPage) {
         PageFactory.createPage(nameOfPage).openTestedPage(AvailableHomePages.valueOf(nameOfPage.toString()).getPath());
     }
 
-    protected void typeTextToInputTextBox(final String searchedText, final String elementName,
+    public void typeTextToInputTextBox(final String searchedText, final String elementName,
                                           final PageTypeEnums page) {
         SelenideElement elementUnderTest = getElementUnderTest(elementName, page);
         elementUnderTest.val(searchedText);
         elementUnderTest.sendKeys(Keys.ENTER);
     }
 
-    protected void clickOnSearchTypeButton(final String searchType, final PageTypeEnums pageStrategy) {
+    public void clickOnSearchTypeButton(final String searchType, final PageTypeEnums pageStrategy) {
         SelenideElement window = getElementUnderTest(searchType, pageStrategy);
         IClickOnSearchType clickOnSearchType = StrategyFactory.getStrategy(pageStrategy, window);
         ClickActivity clickActivity = new ClickActivity(clickOnSearchType);
         clickActivity.executeActivity();
     }
 
-    protected void userCheckElementContainsText(final String elementName, final String searchedText,
+    public void userCheckElementContainsText(final String elementName, final String searchedText,
                                                 final PageTypeEnums page) {
         SelenideElement elementUnderTest = getElementUnderTest(elementName, page);
         String elementText = elementUnderTest.getValue();
         assertThat(elementText).as("Tested element %s is null", elementText).contains(searchedText);
     }
 
-    protected void checkRequiredWindows(final PageTypeEnums page, final String window) {
+    public void checkRequiredWindows(final PageTypeEnums page, final String window) {
         SelenideElement elementUnderTest = getElementUnderTest(window, page);
         elementUnderTest.shouldBe(Condition.visible);
     }
 
-    protected void userSearchTextAndGetFoundResults(final String elementName, final PageTypeEnums page) {
+    public void userSearchTextAndGetFoundResults(final String elementName, final PageTypeEnums page) {
         SelenideElement elementUnderTest = getElementUnderTest(elementName, page);
 
         switch (page) {
@@ -108,18 +108,18 @@ public class BaseSteps {
         }
     }
 
-    protected SelenideElement getElementUnderTest(final String elementName, final PageTypeEnums page) {
+    public SelenideElement getElementUnderTest(final String elementName, final PageTypeEnums page) {
         TestedPage pageForSearch = PageFactory.createPage(page);
         return getSelenideByFieldName(elementName, pageForSearch);
     }
 
-    protected void userComparedRememberedValues(final SessionKey firstValue, final SessionKey secondValue) {
+    public void userComparedRememberedValues(final SessionKey firstValue, final SessionKey secondValue) {
         long valueFromGoogle = getTestSession().getL(firstValue);
         long valueFromBing = getTestSession().getL(secondValue);
         Assertions.assertThat(valueFromGoogle).as("Result from Google is always bigger").isGreaterThan(valueFromBing);
     }
 
-    protected void waitVisibility(final String elementName, final PageTypeEnums page) {
+    public void waitVisibility(final String elementName, final PageTypeEnums page) {
         SelenideElement elementUnderTest = getElementUnderTest(elementName, page);
         Selenide.Wait().until(webDriver -> elementUnderTest.isEnabled());
     }

@@ -30,8 +30,8 @@ public class CheckElementPresent extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     public void checkSearchResult(final PageTypeEnums pageToOpen, final String searchedText, final String elementName) {
         startTest("Check Element Present", "Check Element Present");
-        openPageByParameter(pageToOpen);
-        typeTextToInputTextBox(searchedText, elementName, pageToOpen);
-        userCheckElementContainsText(elementName, searchedText, pageToOpen);
+        baseSteps.openPageByParameter(pageToOpen);
+        baseSteps.typeTextToInputTextBox(searchedText, elementName, pageToOpen);
+        baseSteps.userCheckElementContainsText(elementName, searchedText, pageToOpen);
     }
 }

@@ -8,18 +8,17 @@ mvn clean test -**Dtest**=testClassName -**Denv**=env -**DdriverManager**=driver
 **driver** - available drivers can be found by path common.DriverBinariesSetter.<br>
 
 You can use EDGE/FIREFOX/CHROME - for local execution<br>
-SAUCE_LAB - for remote execution<br>
-Default driver is CHROME
+SAUCE_LAB_CHROME/SAUCE_LAB_FIREFOX/SAUCE_LAB_EDGE - for remote execution<br>
 
 Examples:<br>
-mvn clean test -Dtest=CheckElementPresent -Denv=dev -DdriverManager=sauceLab - remoteWebDriver<br>
-mvn clean test -Dtest=CheckElementPresent -Denv=qa -DdriverManager=chrome - localDriver
+mvn clean test -Dtest=CheckElementPresent -Denv=dev -DdriverManager=SAUCE_LAB_FIREFOX - remoteWebDriver<br>
+mvn clean test -Dtest=CheckElementPresent -Denv=qa -DdriverManager=EDGE - localDriver
 
 To run the whole suite skip **Dtest** parameter
 
 Examples:<br>
-mvn clean test -Denv=dev -DdriverManager=chrome<br>
-mvn clean test -Denv=dev -DdriverManager=sauceLab
+mvn clean test -Denv=dev -DdriverManager=CHROME<br>
+mvn clean test -Denv=dev -DdriverManager=SAUCE_LAB_CHROME
 
 ## How to generate report
 Report generation is available only after local execution.<br>

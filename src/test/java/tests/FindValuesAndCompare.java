@@ -17,18 +17,18 @@ public class FindValuesAndCompare extends BaseTest {
 
     @DataProvider(name = "data-provider")
     public Object[][] dpMethod() {
-        return new Object[][]{{GOOGLE, "Ukraine", "input", GOOGLE_STRATEGY, "window", "searchType"},
-                {BING, "EPAM", "input", BING_STRATEGY, "window", "searchType"}};
+        return new Object[][]{{GOOGLE, "Ukraine", GOOGLE_STRATEGY},
+                {BING, "EPAM", BING_STRATEGY}};
     }
 
     @Test(priority = 0, description = "Search function validation", dataProvider = "data-provider")
     @Severity(SeverityLevel.MINOR)
-    public void verifySearchFunction(final PageTypeEnums pageToOpen, final String searchedText, final String elementName,
-                                     final PageTypeEnums pageStrategy, final String expectedWindow, final String searchType) {
+    public void verifySearchFunction(final PageTypeEnums pageToOpen, final String searchedText,
+                                     final PageTypeEnums pageStrategy) {
         startTest("Search function validation", "Search function validation");
-        openPageByParameter(pageToOpen);
-        typeTextToInputTextBox(searchedText, elementName, pageToOpen);
-        clickOnSearchTypeButton(searchType, pageStrategy);
-        checkRequiredWindows(pageStrategy, expectedWindow);
+        baseSteps.openPageByParameter(pageToOpen);
+        baseSteps.typeTextToInputTextBox(searchedText, "input", pageToOpen);
+        baseSteps.clickOnSearchTypeButton("searchType", pageStrategy);
+        baseSteps.checkRequiredWindows(pageStrategy, "window");
     }
 }

@@ -1,19 +1,24 @@
 package tests;
 
-import common.DriverBinariesSetter;
+import common.helper.DriverManager;
 import config.ConfigurationManager;
-import java.io.IOException;
 import lombok.SneakyThrows;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
-import pages.HomePage;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import steps.BaseSteps;
 import utils.logs.Log;
 
+import java.io.IOException;
+
 import static common.DriverBinariesSetter.driver;
 
-public class BaseTest extends BaseSteps {
+public class BaseTest {
+
+    protected BaseSteps baseSteps = new BaseSteps();
 
     @SneakyThrows
     @BeforeSuite
@@ -24,22 +29,21 @@ public class BaseTest extends BaseSteps {
     @BeforeClass
     public void classLevelSetup() throws IOException {
         Log.info("Tests are starting!");
-        DriverBinariesSetter
-                .setBinariesForUsedWebDriver(System.getProperty("driverManager"));
+        DriverManager.setBinariesForUsedWebDriver();
     }
 
     @AfterMethod
-    public void teardown(ITestResult result) {
-        if (System.getProperty("driverManager").equals("sauceLab")) {
-            ((RemoteWebDriver) driver).executeScript("sauce:job-name=" + result.getName());
-            String status = result.isSuccess() ? "passed" : "failed";
-            ((RemoteWebDriver) driver).executeScript("sauce:job-result=" + status);
-        }
+    public void tearDown(ITestResult result) {
+        DriverManager.setSauceLabJobNameAndStatus(result);
     }
 
     @AfterClass
     public void closeDriver() {
         Log.info("Tests are ending!");
         driver.quit();
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }

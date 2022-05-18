@@ -28,18 +28,19 @@ public class SearchFunctionValidation extends BaseTest {
 
     @Test(priority = 0, description = "Search function validation", dataProvider = "data-provider")
     @Severity(SeverityLevel.MINOR)
-    public void verifySearchFunction(final PageTypeEnums pageToOpen, final String searchedText, final String elementName,
+    public void verifySearchFunction(final PageTypeEnums pageToOpen, final String searchedText,
+                                     final String elementName,
                                      final String result, final PageTypeEnums secondPageToOpen) {
         startTest("Search function validation", "Search function validation");
-        openPageByParameter(pageToOpen);
-        typeTextToInputTextBox(searchedText, elementName, pageToOpen);
-        userSearchTextAndGetFoundResults(result, pageToOpen);
+        baseSteps.openPageByParameter(pageToOpen);
+        baseSteps.typeTextToInputTextBox(searchedText, elementName, pageToOpen);
+        baseSteps.userSearchTextAndGetFoundResults(result, pageToOpen);
 
-        openPageByParameter(secondPageToOpen);
-        typeTextToInputTextBox(searchedText, elementName, secondPageToOpen);
-        userSearchTextAndGetFoundResults(result, secondPageToOpen);
+        baseSteps.openPageByParameter(secondPageToOpen);
+        baseSteps.typeTextToInputTextBox(searchedText, elementName, secondPageToOpen);
+        baseSteps.userSearchTextAndGetFoundResults(result, secondPageToOpen);
 
-        userComparedRememberedValues(REMEMBERED_VALUE_FOR_GOOGLE, REMEMBERED_VALUE_FOR_BING);
+        baseSteps.userComparedRememberedValues(REMEMBERED_VALUE_FOR_GOOGLE, REMEMBERED_VALUE_FOR_BING);
 
     }
 }

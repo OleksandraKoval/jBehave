@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import utils.listeners.TestListener;
 
 import static factoryPattern.PageTypeEnums.*;
@@ -19,6 +20,7 @@ import static utils.extentreports.ExtentTestManager.startTest;
 @Epic("Make Up login Pop up")
 @Feature("Login Tests")
 public class LoginTest extends BaseTest {
+    private HomePage homePage;
 
     @DataProvider(name = "data-provider")
     public Object[][] dpMethod() {
@@ -30,9 +32,9 @@ public class LoginTest extends BaseTest {
     public void verifyLoginPopUpAppears(final PageTypeEnums pageToOpen,final PageTypeEnums pageStrategy, final String searchType,
                                         final String firstElement,final String secondElement,final PageTypeEnums elementOnPage) {
 
-        openPageByParameter(pageToOpen);
-        clickOnSearchTypeButton(searchType, pageStrategy);
-        waitVisibility(firstElement,elementOnPage);
-        waitVisibility(secondElement,elementOnPage);
+        baseSteps.openPageByParameter(pageToOpen);
+        baseSteps.clickOnSearchTypeButton(searchType, pageStrategy);
+        baseSteps.waitVisibility(firstElement,elementOnPage);
+        baseSteps.waitVisibility(secondElement,elementOnPage);
     }
 }

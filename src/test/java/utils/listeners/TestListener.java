@@ -1,5 +1,6 @@
 package utils.listeners;
 
+import com.aventstack.extentreports.Status;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -10,11 +11,20 @@ import org.testng.ITestResult;
 import tests.BaseTest;
 import utils.logs.Log;
 
+import java.util.Objects;
+
 import static utils.extentreports.ExtentManager.getExtentReports;
+import static utils.extentreports.ExtentTestManager.getTest;
 
 public class TestListener extends BaseTest implements ITestListener {
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
+    }
+
+    //Text attachments for Allure
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshotPNG(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
     //Text attachments for Allure
@@ -51,9 +61,24 @@ public class TestListener extends BaseTest implements ITestListener {
 
         //Get driver from BaseTest and assign to local webdriver variable.
         Object testClass = iTestResult.getInstance();
+        WebDriver driver = ((BaseTest) testClass).getDriver();
+
+        //Allure ScreenShotRobot and SaveTestLog
+        if (driver != null) {
+            Log.info("Screenshot captured for test case:" + getTestMethodName(iTestResult));
+            saveScreenshotPNG(driver);
+        }
 
         //Save a log on allure.
         saveTextLog(getTestMethodName(iTestResult) + " failed and screenshot taken!");
+
+        //Take base64Screenshot screenshot for extent reports
+        String base64Screenshot =
+                "data:image/png;base64," + ((TakesScreenshot) Objects.requireNonNull(driver)).getScreenshotAs(OutputType.BASE64);
+
+        //ExtentReports log and screenshot operations for failed tests.
+        getTest().log(Status.FAIL, "Test Failed",
+                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
     }
 
     @Override
