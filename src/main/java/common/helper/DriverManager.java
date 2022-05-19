@@ -16,7 +16,7 @@ public class DriverManager {
     }
 
     public static void setSauceLabJobNameAndStatus(ITestResult result)  {
-        if (System.getProperty("driverManager").equals("sauceLab")) {
+        if (System.getProperty("driverManager").contains("SAUCE")) {
             ((RemoteWebDriver) driver).executeScript("sauce:job-name=" + result.getName());
             String status = result.isSuccess() ? "passed" : "failed";
             ((RemoteWebDriver) driver).executeScript("sauce:job-result=" + status);
