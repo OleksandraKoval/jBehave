@@ -22,9 +22,8 @@ import static common.DriverBinariesSetter.Drivers.*;
 
 public final class DriverBinariesSetter {
 
-    private static final String SAUCE_URL =
-            "https://" + ConfigurationManager.getProperty("sauceLab.username") + ":" + ConfigurationManager.getProperty("sauceLab.access.key") +
-            ConfigurationManager.getProperty("sauceLab.url");
+    private  static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+
 
     private DriverBinariesSetter() {
     }
@@ -71,49 +70,47 @@ public final class DriverBinariesSetter {
     }
 
     private static void setSauceLabRemoteDriver() throws MalformedURLException {
-        URL url = new URL(SAUCE_URL);
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--lang=ukr");
         desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         desiredCapabilities.setCapability("browserName", CHROME);
         desiredCapabilities.setCapability("browser", ConfigurationManager.getProperty("sauceLab.chrome.version"));
         setDesiredCapabilities();
-        driver = new RemoteWebDriver(url, desiredCapabilities);
     }
 
     private static void callSauceLabPropertiesFirefox() throws MalformedURLException {
-        URL url = new URL(SAUCE_URL);
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("--lang=ukr");
         desiredCapabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
         desiredCapabilities.setCapability("browserName", FIREFOX);
         desiredCapabilities.setCapability("browser", ConfigurationManager.getProperty("sauceLab.firefox.version"));
         setDesiredCapabilities();
-        driver = new RemoteWebDriver(url, desiredCapabilities);
     }
 
     private static void callSauceLabPropertiesEdge() throws MalformedURLException {
-        URL url = new URL(SAUCE_URL);
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments("--lang=ukr");
         desiredCapabilities.setCapability(EdgeOptions.CAPABILITY, edgeOptions);
         desiredCapabilities.setCapability("browserName", EDGE);
         desiredCapabilities.setCapability("browser", ConfigurationManager.getProperty("sauceLab.edge.version"));
         setDesiredCapabilities();
-        driver = new RemoteWebDriver(url, desiredCapabilities);
     }
 
 
-    private static void setDesiredCapabilities() {
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    private static void setDesiredCapabilities() throws MalformedURLException {
         desiredCapabilities.setCapability("platform", ConfigurationManager.getProperty("sauceLab.platform.version"));
         desiredCapabilities.setCapability("avoidProxy", true);
         desiredCapabilities.setCapability("username", ConfigurationManager.getProperty("sauceLab.username"));
         desiredCapabilities.setCapability("accessKey", ConfigurationManager.getProperty("sauceLab.access.key"));
+        driver = new RemoteWebDriver(getSauceLabUrl(), desiredCapabilities);
     }
+
+    private static URL getSauceLabUrl() throws MalformedURLException {
+        return new URL (ConfigurationManager.getProperty("sauceLab.username") + ":" + ConfigurationManager.getProperty("sauceLab.access.key") +
+                ConfigurationManager.getProperty("sauceLab.url"));
+
+    }
+
 
     public enum Drivers {
         EDGE("edge"),
