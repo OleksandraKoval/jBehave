@@ -1,7 +1,8 @@
 package common.reporter;
 
-import com.gurock.testrail.APIClient;
 import config.ConfigurationManager;
+import java.util.*;
+import java.util.stream.Collectors;
 import lombok.SneakyThrows;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,8 +12,7 @@ import org.testng.*;
 import org.testng.xml.XmlSuite;
 import slackIntegration.EyesSlack;
 import testRailIntegration.TestRailIntegration;
-
-import java.util.*;
+import testrail.APIClient;
 
 public class CustomReporter implements IReporter {
     private static final Logger LOG = LoggerFactory.getLogger(CustomReporter.class);
@@ -52,15 +52,15 @@ public class CustomReporter implements IReporter {
             for (ISuiteResult sr : suiteResults.values()) {
                 ITestContext tc = sr.getTestContext();
                 allTestCasesInSuite =
-                        Arrays.stream(tc.getAllTestMethods()).map(ITestNGMethod::getMethodName).toList();
+                        Arrays.stream(tc.getAllTestMethods()).map(ITestNGMethod::getMethodName).collect(Collectors.toList());
                 passedTests =
-                        tc.getPassedTests().getAllResults().stream().map(ITestResult::getName).toList();
+                        tc.getPassedTests().getAllResults().stream().map(ITestResult::getName).collect(Collectors.toList());
                 passedTC.put(1, passedTests);
                 failedTests =
-                        tc.getFailedTests().getAllResults().stream().map(ITestResult::getName).toList();
+                        tc.getFailedTests().getAllResults().stream().map(ITestResult::getName).collect(Collectors.toList());
                 failedTC.put(5, failedTests);
                 skippedTests =
-                        tc.getSkippedTests().getAllResults().stream().map(ITestResult::getName).toList();
+                        tc.getSkippedTests().getAllResults().stream().map(ITestResult::getName).collect(Collectors.toList());
                 skippedTC.put(6, skippedTests);
                 LOG.info("Passed tests for suite '" + suiteName +
                         "' is:" + passedTests.size());
@@ -71,7 +71,7 @@ public class CustomReporter implements IReporter {
             }
         }
         sendResultToSlack();
-        sendResultToTestRail();
+        //sendResultToTestRail();
     }
 
     @SneakyThrows
@@ -125,7 +125,7 @@ public class CustomReporter implements IReporter {
 
 
     private void collectStatusIdAndTcId(Map<Integer, List<String>> tests) {
-        for (Map.Entry<Integer, List<String>> eachTc : tests.entrySet()) {
+/*        for (Map.Entry<Integer, List<String>> eachTc : tests.entrySet()) {
             int key = eachTc.getKey();
             List<String> value = eachTc.getValue();
             idAndTitles.forEach((key1, value1) -> {
@@ -134,7 +134,7 @@ public class CustomReporter implements IReporter {
                     statusIdAndCaseId.put(key, key1);
                 }
             });
-        }
+        }*/
     }
 }
 

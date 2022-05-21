@@ -2,7 +2,7 @@ package steps;
 
 import io.restassured.response.Response;
 
-public class ApiDouSteps extends BaseDefinitionSteps {
+public class ApiDouSteps extends BaseSteps {
 
 
     public static Response getDouRequest() {

@@ -5,16 +5,16 @@ import factoryPattern.TestedPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class BingStrategy extends TestedPage implements IClickOnSearchType {
+public class LoginStrategy extends TestedPage implements IClickOnSearchType {
 
     SelenideElement elementUnderTest;
-    public SelenideElement searchType = $x("//div[@class='b_icon tooltip']");
-    public SelenideElement window = $x("//div[@class='b_overlayCont']//div[@class='b_ov_close']");
-    public BingStrategy() {
+    SelenideElement signInButton = $x("//div[@class='header-top']//div[@data-popup-handler='auth']");
+
+    public LoginStrategy() {
         super();
     }
 
-    public BingStrategy(SelenideElement window) {
+    public LoginStrategy(SelenideElement window) {
         super();
         this.elementUnderTest = window;
     }

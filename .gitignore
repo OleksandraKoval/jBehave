@@ -8,6 +8,10 @@
 *.ipr
 *.iws
 *.iml
+*.html
+*.png
+*.yml
+*.json
 
 # Package Files #
 *.jar
@@ -17,3 +21,4 @@ target/
 /out/
 .idea/
 reports/
+.allure
