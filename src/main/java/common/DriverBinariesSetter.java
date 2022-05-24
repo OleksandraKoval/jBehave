@@ -18,20 +18,19 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.GeneralSecurityException;
-import java.util.Base64;
 
 import static common.DriverBinariesSetter.Drivers.*;
+import static common.helper.EncodingManager.decryptString;
 
 
 public final class DriverBinariesSetter {
 
     private static final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    static String key = System.getProperty("secretKey");
     private static final String sauceLabUserName =
-            new String(Base64.getDecoder().decode(ConfigurationManager.getProperty("sauceLab.username")));
+            decryptString(ConfigurationManager.getProperty("sauceLab.username"), key);
     private static final String sauceLabAccessKey =
-            new String(Base64.getDecoder().decode(ConfigurationManager.getProperty("sauceLab.access.key")));
-
-
+            decryptString(ConfigurationManager.getProperty("sauceLab.access.key"), key);
     private DriverBinariesSetter() {
     }
 
@@ -112,6 +111,8 @@ public final class DriverBinariesSetter {
     private static void setDesiredCapabilities() throws IOException, GeneralSecurityException {
         desiredCapabilities.setCapability("platform", ConfigurationManager.getProperty("sauceLab.platform.version"));
         desiredCapabilities.setCapability("avoidProxy", true);
+        System.out.println("sauceLabUserName is "+sauceLabUserName );
+        System.out.println("sauceLabAccessKey is "+sauceLabAccessKey );
         desiredCapabilities.setCapability("username", sauceLabUserName);
         desiredCapabilities.setCapability("accessKey", sauceLabAccessKey);
         driver = new RemoteWebDriver(getSauceLabUrl(), desiredCapabilities);
