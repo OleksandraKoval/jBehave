@@ -111,8 +111,6 @@ public final class DriverBinariesSetter {
     private static void setDesiredCapabilities() throws IOException, GeneralSecurityException {
         desiredCapabilities.setCapability("platform", ConfigurationManager.getProperty("sauceLab.platform.version"));
         desiredCapabilities.setCapability("avoidProxy", true);
-        System.out.println("sauceLabUserName is "+sauceLabUserName );
-        System.out.println("sauceLabAccessKey is "+sauceLabAccessKey );
         desiredCapabilities.setCapability("username", sauceLabUserName);
         desiredCapabilities.setCapability("accessKey", sauceLabAccessKey);
         driver = new RemoteWebDriver(getSauceLabUrl(), desiredCapabilities);
