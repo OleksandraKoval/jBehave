@@ -13,6 +13,7 @@ import steps.BaseSteps;
 import utils.logs.Log;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 import static common.DriverBinariesSetter.driver;
 
@@ -27,7 +28,7 @@ public class BaseTest {
     }
 
     @BeforeClass
-    public void classLevelSetup() throws IOException {
+    public void classLevelSetup() throws IOException, GeneralSecurityException {
         Log.info("Tests are starting!");
         DriverManager.setBinariesForUsedWebDriver();
     }

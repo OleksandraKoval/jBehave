@@ -4,13 +4,17 @@ import common.DriverBinariesSetter;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.security.GeneralSecurityException;
 
 import static common.DriverBinariesSetter.driver;
 
 public class DriverManager {
 
-    public static void setBinariesForUsedWebDriver() throws MalformedURLException {
+    public static void setBinariesForUsedWebDriver() throws IOException,
+            GeneralSecurityException {
         DriverBinariesSetter
                 .setBinariesForUsedWebDriver(System.getProperty("driverManager"));
     }

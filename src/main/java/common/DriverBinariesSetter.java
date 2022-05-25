@@ -14,23 +14,30 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.GeneralSecurityException;
 
 import static common.DriverBinariesSetter.Drivers.*;
+import static common.helper.EncodingManager.decryptString;
 
 
 public final class DriverBinariesSetter {
 
-    private  static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-
-
+    private static final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    static String key = System.getProperty("secretKey");
+    private static final String sauceLabUserName =
+            decryptString(ConfigurationManager.getProperty("sauceLab.username"), key);
+    private static final String sauceLabAccessKey =
+            decryptString(ConfigurationManager.getProperty("sauceLab.access.key"), key);
     private DriverBinariesSetter() {
     }
 
     public static WebDriver driver;
 
-    public static void setBinariesForUsedWebDriver(String browser) throws MalformedURLException {
+    public static void setBinariesForUsedWebDriver(String browser) throws IOException,
+            GeneralSecurityException {
         //Java 14 switch
         switch (Drivers.valueOf(browser)) {
             case EDGE -> setBinaryByName(EDGE);
@@ -43,7 +50,8 @@ public final class DriverBinariesSetter {
         }
     }
 
-    private static void setBinaryByName(Drivers name) throws MalformedURLException {
+    private static void setBinaryByName(Drivers name) throws IOException,
+            GeneralSecurityException {
         //Java 14 switch
         switch (name) {
             case FIREFOX -> {
@@ -69,7 +77,8 @@ public final class DriverBinariesSetter {
         WebDriverRunner.setWebDriver(driver);
     }
 
-    private static void setSauceLabRemoteDriver() throws MalformedURLException {
+    private static void setSauceLabRemoteDriver() throws IOException,
+            GeneralSecurityException {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--lang=ukr");
         desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
@@ -78,7 +87,8 @@ public final class DriverBinariesSetter {
         setDesiredCapabilities();
     }
 
-    private static void callSauceLabPropertiesFirefox() throws MalformedURLException {
+    private static void callSauceLabPropertiesFirefox() throws IOException,
+            GeneralSecurityException {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("--lang=ukr");
         desiredCapabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, firefoxOptions);
@@ -87,7 +97,8 @@ public final class DriverBinariesSetter {
         setDesiredCapabilities();
     }
 
-    private static void callSauceLabPropertiesEdge() throws MalformedURLException {
+    private static void callSauceLabPropertiesEdge() throws IOException,
+            GeneralSecurityException {
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments("--lang=ukr");
         desiredCapabilities.setCapability(EdgeOptions.CAPABILITY, edgeOptions);
@@ -97,16 +108,16 @@ public final class DriverBinariesSetter {
     }
 
 
-    private static void setDesiredCapabilities() throws MalformedURLException {
+    private static void setDesiredCapabilities() throws IOException, GeneralSecurityException {
         desiredCapabilities.setCapability("platform", ConfigurationManager.getProperty("sauceLab.platform.version"));
         desiredCapabilities.setCapability("avoidProxy", true);
-        desiredCapabilities.setCapability("username", ConfigurationManager.getProperty("sauceLab.username"));
-        desiredCapabilities.setCapability("accessKey", ConfigurationManager.getProperty("sauceLab.access.key"));
+        desiredCapabilities.setCapability("username", sauceLabUserName);
+        desiredCapabilities.setCapability("accessKey", sauceLabAccessKey);
         driver = new RemoteWebDriver(getSauceLabUrl(), desiredCapabilities);
     }
 
     private static URL getSauceLabUrl() throws MalformedURLException {
-        return new URL (ConfigurationManager.getProperty("sauceLab.username") + ":" + ConfigurationManager.getProperty("sauceLab.access.key") +
+        return new URL(ConfigurationManager.getProperty("sauceLab.protocol") + sauceLabUserName + ":" + sauceLabAccessKey +
                 ConfigurationManager.getProperty("sauceLab.url"));
 
     }
